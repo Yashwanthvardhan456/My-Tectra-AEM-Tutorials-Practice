@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Demo Configuration"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <isRegular
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                        checked="{Boolean}false"
+                        fieldLabel="Is Regular?"
+                        name="./isRegular"
+                        text="is Regular?"
+                        uncheckedValue="{Boolean}false"
+                        value="{Boolean}true"/>
+                    <country
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="Select Country"
+                        name="./country">
+                        <items jcr:primaryType="nt:unstructured">
+                            <india
+                                jcr:primaryType="nt:unstructured"
+                                text="India"
+                                value="INDIA"/>
+                            <usa
+                                jcr:primaryType="nt:unstructured"
+                                text="USA"
+                                value="United States"/>
+                            <australia
+                                jcr:primaryType="nt:unstructured"
+                                text="Australia"
+                                value="AUSTRALIA"/>
+                        </items>
+                    </country>
+                    <socialMedia
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Social Media"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <tabs
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Social Media">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    name="./socialMedia">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <socialMediaIcon
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldLabel="Social Media Icon"
+                                                    name="./socialMediaIcon"/>
+                                                <socialMediaAccount
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldLabel="Social Media Account"
+                                                    name="./socialMediaAccount"/>
+                                                <alttext
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldLabel="Social Media icon alt Text"
+                                                    name="./altText"/>
+                                                <extraField
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldLabel="Extra Filed"
+                                                    name="./extraField"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </tabs>
+                        </items>
+                    </socialMedia>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

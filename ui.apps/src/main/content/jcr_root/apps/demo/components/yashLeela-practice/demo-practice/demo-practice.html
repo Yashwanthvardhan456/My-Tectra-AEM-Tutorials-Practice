@@ -1,0 +1,18 @@
+<h1>Demo YL Pract component.</h1>
+<sly data-sly-use.model="com.adobe.aem.demo.core.models.DemoModelPract">
+  <div>Is Regular Student: ${model.isRegular}</div>
+  <div>Country Name: ${model.country}</div>
+  <div>
+    <ul class="social-links-list" data-sly-list.items="${model.socialMedia}">
+      <li>
+        <a href="${items.socialMediaAccount}.html">
+          <img src="${items.socialMediaIcon}" alt="${items.altText}" />
+        </a>
+        ${items.extraField}
+      </li>
+    </ul>
+  </div>
+  <div data-sly-include="footer.html"></div>
+</sly>
+<sly data-sly-use.footerCL="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${footerCL.css @ Categories='demo-cmp-clientlibs'}"/>

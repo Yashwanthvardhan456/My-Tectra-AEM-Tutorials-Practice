@@ -1,0 +1,16 @@
+<h1>Youtube Video component.</h1>
+<sly data-sly-use.model="com.adobe.aem.demo.core.models.YoutubeVideoPract"></sly>
+<h3 data-sly-test="${model.videoNumber}">
+    Video Number: ${model.videoNumber}
+</h3>
+
+<iframe width="815" height="458" src="${model.videoId}" 
+title="🚨 BREAKING DELHI HOTEL TRAGEDY | Horrific Truth Behind Tourism &amp; Unsafe Hotels in India | VR Raja" 
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" 
+allowfullscreen>
+</iframe>
+
+<p data-sly-test="${model.videoDescription}">
+    Video Description: ${model.videoDescription}
+</p>
