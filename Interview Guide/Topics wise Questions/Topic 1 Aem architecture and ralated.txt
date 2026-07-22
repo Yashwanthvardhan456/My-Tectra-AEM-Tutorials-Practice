@@ -1,0 +1,494 @@
+1. AEM Architecture
+Q1. Explain AEM Architecture.
+Answer:
+AEM architecture consists of:
+
+Author Instance: Used by content authors to create and manage content.
+Publish Instance: Serves content to end users.
+Dispatcher: Acts as a caching and load-balancing layer.
+Content Repository (JCR/Oak): Stores content and configurations.
+OSGi Container: Manages Java services and components.
+Sling Framework: Maps requests to resources and scripts.
+
+Flow:
+Browser
+   ↓
+Dispatcher
+   ↓
+Publish Instance
+   ↓
+Sling Engine
+   ↓
+JCR Repository
+   ↓
+HTL Component Rendering
+   ↓
+Response to User
+
+
+Q2. Explain Author, Publish, and Dispatcher.
+Answer:
+Author
+
+Content creation happens here.
+Accessible only to content authors.
+Workflows and replication are triggered here.
+
+Publish
+
+Public-facing environment.
+Receives activated content from Author.
+Handles end-user requests.
+
+Dispatcher
+
+Caching layer.
+Improves performance.
+Protects publish instances.
+Performs load balancing.
+
+Scenario Question:
+Why do we use Dispatcher?
+Answer:
+Without Dispatcher, every request hits Publish, increasing server load. Dispatcher caches static content and serves it directly.
+
+Q3. What happens when a page is activated?
+Answer:
+
+Author publishes the page.
+Replication Agent gets triggered.
+Content is transferred to Publish.
+Dispatcher cache is invalidated.
+New content becomes available.
+
+
+2. AEM as a Cloud Service
+Q4. What is AEM as a Cloud Service?
+Answer:
+AEMaaCS is Adobe's cloud-native version of AEM.
+Features:
+
+Auto-scaling
+Continuous updates
+Cloud Manager CI/CD
+Immutable architecture
+Containerized deployments
+
+
+Q5. Difference Between AEM 6.5 and AEM Cloud Service?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AEM 6.5AEM CloudManual upgradesAutomated upgradesCustomer-managed infrastructureAdobe-managed infrastructureStateful deploymentsCloud-native deploymentsTraditional package deploymentCI/CD Pipeline
+
+Q6. What is Immutable and Mutable Content?
+Answer:
+Immutable
+Cannot be modified at runtime.
+Examples:
+/apps
+/libs
+
+Mutable
+Can be modified through UI.
+Examples:
+/content
+/conf
+/dam
+
+
+3. JCR (Java Content Repository)
+Q7. What is JCR?
+Answer:
+JCR is a hierarchical repository used to store:
+
+Pages
+Assets
+Components
+Configurations
+User data
+
+Structure:
+/content
+   /project
+       /home
+
+Everything in JCR is stored as nodes and properties.
+
+Q8. Difference Between Node and Resource?
+Answer:
+Node
+JCR API object.
+Java1Node node = session.getNode("/content/page");Show more lines
+Resource
+Sling abstraction over JCR.
+Java1Resource resource =2resourceResolver.getResource("/content/page");Show more lines
+Interview Tip:
+Resource is preferred in modern AEM development.
+
+Q9. Which Query Types are Available in AEM?
+Answer:
+
+Query Builder
+SQL2
+XPath
+
+Example:
+SQL1SELECT * FROM [cq:Page]2WHERE ISDESCENDANTNODE('/content')Show more lines
+
+Q10. How do you optimize JCR queries?
+Answer:
+
+Create Oak indexes.
+Avoid traversal queries.
+Limit results.
+Use indexed properties.
+Use Query Performance Tool.
+
+
+4. OSGi Framework
+Q11. What is OSGi?
+Answer:
+OSGi is a modular framework used to manage Java services and bundles dynamically.
+Benefits:
+
+Modular architecture
+Dynamic deployment
+Service-based development
+Configuration management
+
+
+Q12. Explain OSGi Component Lifecycle.
+Answer:
+Java1@Activate2@Modified3@DeactivateShow more lines
+Activate
+Called when service starts.
+Modified
+Called when configuration changes.
+Deactivate
+Called when service stops.
+Example:
+Java1@Activate2protected void activate() {3    log.info("Service Started");4}Show more lines
+
+Q13. Difference Between Service and Component?
+Answer:
+Component
+OSGi managed class.
+Java1@Component2public class SampleComponent {3}Show more lines
+Service
+Functionality exposed to others.
+Java1@Component(service = DemoService.class)2public class DemoServiceImpl3        implements DemoService {4}Show more lines
+
+Q14. Immediate vs Delayed Components?
+Answer:
+Immediate=true
+Created during startup.
+Java1@Component(immediate=true)Show more lines
+Delayed
+Created only when required.
+Better for performance.
+
+Q15. Why use OSGi Configurations?
+Answer:
+To externalize configurable values.
+Example:
+Java1service.endpoint=https://api.company.comShow more lines
+Instead of hardcoding values in Java.
+
+5. Sling Framework
+Q16. What is Apache Sling?
+Answer:
+Apache Sling is a web framework that uses JCR content and resolves requests based on resources rather than URLs.
+Key Concepts:
+
+Resource
+Resource Resolver
+Sling Models
+Servlets
+
+
+Q17. Explain Sling Request Processing.
+Answer:
+Flow:
+Request
+   ↓
+Resource Resolution
+   ↓
+Servlet / Script Selection
+   ↓
+Component Rendering
+   ↓
+Response
+
+
+Q18. What are Sling Models?
+Answer:
+Sling Models are Java classes used to expose data to HTL.
+Example:
+Java1@Model(adaptables = Resource.class)2public class HeaderModel {3 4    @ValueMapValue5    private String title;6 7    public String getTitle() {8        return title;9    }10}Show more lines
+
+Q19. Difference Between WCMUsePojo and Sling Models?
+Answer:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WCMUsePojoSling ModelsOld approachModern approachMore boilerplate codeAnnotation-basedLess maintainablePreferred by Adobe
+Most projects now use Sling Models.
+
+Q20. What is Adaptable?
+Answer:
+Adaptable objects can convert to another object.
+Example:
+Java1Page page =2resource.adaptTo(Page.class);Show more lines
+Common Adaptables:
+
+Resource
+SlingHttpServletRequest
+
+
+Q21. What is ResourceResolver?
+Answer:
+ResourceResolver provides access to JCR resources.
+Example:
+Java1Resource resource =2resourceResolver.getResource(path);Show more lines
+Used for:
+
+Reading content
+Creating nodes
+Updating content
+
+
+Q22. Difference Between ResourceResolver and Session?
+Answer:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ResourceResolverSessionSling APIJCR APIRecommendedLow-level accessEasier to useMore complex
+
+6. Apache Felix
+Q23. What is Apache Felix Console?
+Answer:
+Apache Felix provides the OSGi runtime.
+Useful consoles:
+/system/console/bundles
+/system/console/configMgr
+/system/console/components
+/system/console/depfinder
+
+
+Q24. How do you troubleshoot a bundle issue?
+Answer:
+Steps:
+
+Open Bundle Console.
+Check bundle state.
+Identify missing dependencies.
+Review logs.
+Resolve package imports.
+
+Common states:
+
+Active
+Installed
+Resolved
+Fragment
+
+
+Q25. Bundle is in Installed State. How do you fix it?
+Answer:
+Usually due to missing dependency.
+Check:
+/system/console/bundles
+
+Open bundle details and identify unresolved packages.
+Add dependency in Maven and redeploy.
+
+7. CRXDE Lite
+Q26. What is CRXDE Lite?
+Answer:
+Browser-based tool for viewing and editing repository content.
+URL:
+http://localhost:4502/crx/de
+
+
+Q27. Uses of CRXDE Lite?
+Answer:
+
+Verify component nodes
+Check content structure
+Debug dialogs
+Create test content
+Inspect properties
+
+
+Q28. Why should we avoid direct changes in CRXDE in production?
+Answer:
+
+Not version-controlled.
+Changes may be lost during deployment.
+Can break environments.
+Violates DevOps practices.
+
+Always deploy through code.
+
+8. Resource Resolution
+Q29. How does Resource Resolution work?
+Answer:
+Example URL:
+/content/mysite/en/home.html
+
+Sling:
+
+Resolves URL to resource.
+Finds resource type.
+Maps to component.
+Executes HTL script.
+
+
+Q30. What is sling:resourceType?
+Answer:
+It defines the component responsible for rendering content.
+Example:
+Plain Text1sling:resourceType=2myproject/components/content/bannerShow more lines
+Sling then finds:
+Plain Text1/apps/myproject/components/content/banner/banner.htmlShow more lines
+
+Q31. Difference Between sling:resourceType and sling:resourceSuperType?
+Answer:
+resourceType
+Current component.
+resourceSuperType
+Inherited component.
+Example:
+Plain Text1sling:resourceType=custom/title2sling:resourceSuperType=core/wcm/components/title/v3/titleShow more lines
+Used for extending Core Components.
+
+9. Request Processing Lifecycle
+Q32. Explain Complete Request Processing Lifecycle.
+Answer:
+Browser
+ ↓
+Dispatcher
+ ↓
+Publish
+ ↓
+Sling Request
+ ↓
+Resource Resolution
+ ↓
+Servlet/HTL Selection
+ ↓
+Sling Model Execution
+ ↓
+Repository Fetch
+ ↓
+HTL Rendering
+ ↓
+HTML Response
+ ↓
+Browser
+
+
+Q33. What is the difference between Servlet Resolution and Resource Resolution?
+Answer:
+Resource Resolution
+Finds content resource.
+Example:
+/content/site/home
+
+Servlet Resolution
+Finds servlet or script to execute.
+Based on:
+
+Resource Type
+Selectors
+Extensions
+Methods
+
+
+5-Year Experience Scenario Questions
+Q34. A page takes 8 seconds to load. What will you check?
+Answer:
+
+Dispatcher cache hit/miss
+Expensive Sling Models
+Unindexed queries
+API calls
+Large JS/CSS files
+Server logs
+Thread dumps
+
+
+Q35. How do you debug a component not rendering?
+Answer:
+
+Check sling:resourceType.
+Verify HTL file exists.
+Validate Sling Model injection.
+Check error.log.
+Use Developer Mode.
+Verify permissions.
+
+
+Q36. How would you explain AEM request flow in a real interview?
+Answer (Short Version):
+"When a user accesses a page, the request first reaches Dispatcher. If content is cached, Dispatcher serves it directly. Otherwise, it forwards the request to Publish. Sling resolves the URL to a resource in JCR, identifies the component via sling:resourceType, executes the associated HTL and Sling Models, generates HTML, returns the response to Dispatcher, and finally sends it to the browser. The response is then cached for future requests."
+This is the exact level of depth typically expected from a 5-year AEM Developer in Cognizant, Accenture, Deloitte, EY, Adobe, IBM, or Capgemini interviews.
