@@ -1,0 +1,400 @@
+1. AEM Core Concepts
+AEM Architecture
+
+AEM Author, Publish, Dispatcher
+AEM as a Cloud Service
+Content Repository (JCR)
+OSGi Framework
+Sling Framework
+Apache Felix
+CRXDE Lite
+Resource Resolution
+Request Processing Lifecycle
+
+Interview Questions
+
+Explain AEM request flow.
+Difference between Author and Publish instances.
+How does Sling resolve a request?
+What happens when a page is requested in AEM?
+
+
+2. Sling Framework
+Important Topics
+
+Sling Models
+Sling Servlets
+ResourceResolver
+Adaptables
+ValueMap
+Sling Filters
+Sling Scheduler
+Sling Context-Aware Configuration
+
+Expected Knowledge
+Java1@Model(adaptables = Resource.class)2public class DemoModel {3 4    @ValueMapValue5    private String title;6 7    public String getTitle() {8        return title;9    }10}Show more lines
+Interview Questions
+
+Difference between Sling Models and WCMUsePojo.
+Why do we use adaptables?
+Difference between Resource and Node.
+What is ResourceResolverFactory?
+
+
+3. OSGi Framework
+Topics
+
+OSGi Components
+Services
+Configurations
+DS Annotations
+Configuration Admin
+
+Annotations
+Java1@Component(service = MyService.class)2@ServiceShow more lines
+Java1@Activate2@Modified3@DeactivateShow more lines
+Questions
+
+Service vs Component?
+Immediate vs Delayed Components?
+OSGi lifecycle?
+How do OSGi configurations work?
+
+
+4. JCR Repository
+Topics
+
+Nodes
+Properties
+Mixins
+Node Types
+Queries
+
+Query Languages
+
+SQL2
+XPath
+Query Builder
+
+Example:
+SQL1SELECT * FROM [cq:Page]2WHERE ISDESCENDANTNODE('/content')Show more lines
+Questions
+
+JCR structure?
+Difference between Node and Resource?
+Query Builder vs SQL2?
+
+
+5. HTL (Sightly)
+Important Topics
+
+Expressions
+Templates
+Use API
+Context-aware escaping
+Data-sly attributes
+
+Examples:
+HTML1<div data-sly-test="${model.title}">2    ${model.title}3</div>Show more lines
+Questions
+
+Why HTL over JSP?
+data-sly-list vs data-sly-repeat?
+XSS protection in HTL?
+
+
+6. AEM Components
+Topics
+
+Editable Templates
+Core Components
+Experience Fragments
+Content Fragments
+Component Dialogs
+Policies
+
+Dialog Development
+
+Granite UI
+Coral UI
+
+Questions
+
+Editable vs Static Templates?
+Experience Fragment vs Content Fragment?
+How do component policies work?
+
+
+7. AEM Backend Development
+Topics
+
+Sling Models
+Servlets
+OSGi Services
+Scheduler
+Event Handling
+Workflows
+
+Servlets
+Java1@Component(service = Servlet.class)2@SlingServletPaths("/bin/demo")3public class DemoServlet extends SlingSafeMethodsServlet {4}Show more lines
+Questions
+
+Path vs Resource Type Servlet?
+GET vs POST Servlet?
+Best practices for custom services?
+
+
+8. AEM Workflows
+Topics
+
+Workflow Models
+Process Steps
+Participant Steps
+Custom Workflow
+
+Questions
+
+How to create custom workflow?
+Launcher vs Workflow?
+Workflow performance issues?
+
+
+9. AEM Assets (DAM)
+Topics
+
+Asset Management
+Metadata
+Renditions
+Smart Tags
+Asset APIs
+
+Questions
+
+Asset Update Workflow?
+Rendition creation?
+Metadata schema?
+
+
+10. Front-End Development (Full Stack Expectation)
+HTML5
+
+Semantic Tags
+Accessibility
+
+CSS3
+
+Flexbox
+Grid
+Responsive Design
+
+JavaScript
+
+ES6+
+Promise
+Async/Await
+Closures
+Event Loop
+
+Advanced JS Questions
+
+var vs let vs const
+Call, Apply, Bind
+Hoisting
+Closures
+Debouncing and Throttling
+
+Example:
+JavaScript1const debounce = (fn, delay) => {2  let timer;3  return () => {4    clearTimeout(timer);5    timer = setTimeout(fn, delay);6  };7};Show more lines
+
+11. React.js (Frequently Asked)
+If projects involve SPA Editor.
+Topics
+
+Components
+Hooks
+State Management
+Lifecycle
+Routing
+Redux
+
+Questions
+
+useEffect vs useMemo
+Virtual DOM
+React Lifecycle
+State vs Props
+
+
+12. AEM SPA Editor
+Topics
+
+React SPA Integration
+Editable Components
+Model Manager
+JSON Exporter
+
+Questions
+
+How does SPA Editor work?
+Advantages over traditional AEM?
+
+
+13. REST API Integration
+Topics
+
+Fetch API
+Axios
+JSON Handling
+External Service Integration
+
+Questions
+
+GET vs POST vs PUT vs PATCH?
+Authentication methods?
+Error handling strategy?
+
+
+14. AEM Cloud Service
+Very important in current interviews.
+Topics
+
+Cloud Manager
+Git Pipelines
+CI/CD
+Dispatcher Configuration
+Repository Modernization
+
+Questions
+
+AEM 6.5 vs Cloud Service?
+Cloud Manager deployment flow?
+Immutable vs Mutable Content?
+
+
+15. Dispatcher
+Topics
+
+Cache Rules
+Filters
+Virtual Hosts
+Flush Agents
+
+Questions
+
+Dispatcher architecture?
+Cache invalidation?
+Why dispatcher is important?
+
+
+16. Security
+Topics
+
+ACLs
+Permissions
+Service Users
+CSRF Protection
+XSS Protection
+
+Questions
+
+Why use service users?
+How to prevent XSS in AEM?
+Authentication vs Authorization?
+
+
+17. DevOps & CI/CD
+Topics
+
+Git
+Maven
+Jenkins
+Cloud Manager
+SonarQube
+
+Maven Commands
+Shell1mvn clean install2mvn clean package3mvn testShow more lines
+Questions
+
+Maven lifecycle?
+Branching strategies?
+Deployment process?
+
+
+18. Design Patterns
+Important Patterns
+
+Singleton
+Factory
+Builder
+Strategy
+Observer
+
+AEM Related
+
+Service Layer Pattern
+Adapter Pattern
+Dependency Injection
+
+
+19. Performance Optimization
+Topics
+
+Dispatcher Caching
+Query Optimization
+Lazy Loading
+CDN Integration
+Asset Optimization
+
+Questions
+
+How do you improve page load time?
+How to optimize JCR queries?
+
+
+20. Scenario-Based Questions
+These are very common for 5+ years.
+Scenario 1
+A page takes 10 seconds to load. How will you troubleshoot?
+Scenario 2
+Dispatcher cache is not updating. What will you check?
+Scenario 3
+Content Fragment data needs to be displayed in React SPA. How will you implement it?
+Scenario 4
+A custom Sling Model is returning null values. How will you debug?
+Scenario 5
+A workflow is stuck. How will you investigate?
+
+21. Hands-On Topics You Must Be Able to Develop
+✅ Custom Component with Dialog
+✅ Sling Model
+✅ OSGi Service
+✅ Resource Type Servlet
+✅ Scheduler
+✅ Custom Workflow Step
+✅ Content Fragment Integration
+✅ Experience Fragment Integration
+✅ React-AEM SPA Component
+✅ Dispatcher Configuration
+✅ Cloud Manager Deployment
+✅ JCR Query Optimization
+✅ Service User Configuration
+
+Most Frequently Asked AEM 5-Year Interview Questions
+
+Explain AEM architecture end-to-end.
+Difference between Resource and Node.
+Sling Models lifecycle.
+Resource Type Servlet vs Path Servlet.
+Experience Fragment vs Content Fragment.
+Editable Templates vs Static Templates.
+How Dispatcher caching works.
+AEM Cloud Service architecture.
+How to optimize AEM performance.
+How would you integrate external REST APIs.
+What are Service Users?
+What is Query Builder?
+Explain OSGi component lifecycle.
+How does a request travel from browser to publish instance?
+What challenges did you face in your AEM project and how did you solve them?
+
+If you're targeting TCS, Cognizant, Accenture, Infosys, Wipro, HCL, Capgemini, Deloitte, EY, or Adobe, covering the above topics thoroughly should prepare you for 90%+ of AEM Full Stack Developer interview questions for 5 years experience.Provide your feedback on BizChat
