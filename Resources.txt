@@ -1,0 +1,25 @@
+git clone
+https://github.com/venkat70756/Vaikuntha/tree/yl-training
+
+https://github.com/venkat70756/wknd/commit/1126f21494ad91dd6d343d96e84bb91c80a4ec27
+
+
+https://yetivenkatrao.medium.com/exploring-edge-delivery-services-and-universal-editor-with-adobes-30-day-trial-environment-9fa4e3c5e3eb?source=user_profile_page---------0-------------8b8c200eccb8----------------------
+
+Archtype
+mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate -D archetypeGroupId=com.adobe.aem -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=41 -D appTitle="demo" -D appId="demo" -D artifactId="demo" -D groupId="com.adobe.aem.demo" -D aemVersion="6.5.13"
+
+mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate -D archetypeGroupId=com.adobe.aem -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=40 -D appTitle="myTractra" -D appId="myTractra" -D artifactId="myTractra" -D groupId="com.adobe.aem.myTractra" -D aemVersion="6.5.13"
+
+
+AEM in debug mode
+java -jar -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,suspend=n,server=y,address=4000 -Xmx2048m -XX:MaxPermSize=256M aem-author-p4502.jar -nofork -gui
+
+Run modes
+
+-Dsling.run.modes=qa,venkat
+
+-r=dev
+
+Query
+http://localhost:4502/libs/cq/search/content/querydebug.html

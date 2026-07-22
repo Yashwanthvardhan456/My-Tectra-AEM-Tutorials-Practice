@@ -1,0 +1,91 @@
+mvn org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate -D archetypeGroupId=com.adobe.aem -D archetypeArtifactId=aem-project-archetype -DarchetypeVersion=40 -D groupId=com.adobe -D version=0.0.1-SNAPSHOT -D appsFolderName=learning -D artifactId=learning -D artifactName="Learning project" -D language_country=en_us -D optionAemVersion=6.5.13 -D optionDispatcherConfig=none -D optionIncludeErrorHandler=n -D optionIncludeExamples=y -D optionIncludeFrontendModule=n -D siteName="Learning Site"
+
+
+mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate -D archetypeGroupId=com.adobe.aem -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=41 -D appTitle="Project" -D appId="Project" -D artifactId="Project" -D groupId="com.adobe.aem.Project" -D aemVersion="2022.10.93"
+
+mvn -PautoInstallSinglePackage clean install
+mvn -PautoInstallPackage install
+mvn -PautoInstallBundle clean install
+
+
+
+mvn clean install -D skipTests -D maven.test.skip=true -D maven.wagon.http.ssl.insecure=true -D maven.wagon.http.ssl.allowall=true -U
+
+
+mvn clean install -PautoInstallSinglePackage -D maven.test.skip=true -D maven.wagon.http.ssl.insecure=true -D maven.wagon.http.ssl.allowall=true -U
+
+
+mvn clean install -PautoInstallSinglePackage -D maven.test.skip=true -D maven.wagon.http.ssl.insecure=true -D maven.wagon.http.ssl.allowall=true -U
+
+
+
+--------------------------------------------------------------------------------------
+mvn org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate -B -D archetypeGroupId=com.adobe.aem -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=40 -D artifactId=mysite -D appTitle="mysite" -D appId="mysite" -D groupId="com.adobe.aem.mysite" -D includeDispatcherConfig=n -D aemVersion="6.5.13"
+
+Need to add skip configuration in plugin
+<groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+	// This configuration should be added to skip ui.frontend
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+
+<groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+// This configuration should be added to skip ui.frontend
+
+                <configuration>
+                    <skipAssembly>true</skipAssembly>
+                </configuration>
+
+After that we need to remove ui.frontend dependency in ui.apps
+
+-----------------------------------------------------------------------------------------------------
+
+
+
+for this project we need to make some changes in the ui.frontend. We need to do because ui.frontend is blocked by the laptop.
+
+mvn org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate -B -D archetypeGroupId=com.adobe.aem -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=40 -D artifactId=mysite -D appTitle="mysite" -D appId="mysite" -D groupId="com.adobe.aem.mysite" -D includeDispatcherConfig=n -D aemVersion="6.5.13"
+
+Need to add skip configuration in plugin
+<groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+	// This configuration should be added to skip ui.frontend
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+
+<groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+// This configuration should be added to skip ui.frontend
+
+                <configuration>
+                    <skipAssembly>true</skipAssembly>
+                </configuration>
+
+After that we need to remove ui.frontend dependency in ui.apps. Remove below code in ui.apps pom.xml
+
+<dependency>
+            <groupId>com.adobe.aem.learning</groupId>
+            <artifactId>learning.ui.frontend</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
+
+
+To skip tests that are blocking by ssl 
+mvn clean install -D skipTests -D maven.test.skip=true -D maven.wagon.http.ssl.insecure=true -D maven.wagon.http.ssl.allowall=true -U
+
+
+mvn clean install -PautoInstallSinglePackage -D maven.test.skip=true -D maven.wagon.http.ssl.insecure=true -D maven.wagon.http.ssl.allowall=true -U
+
+
+mvn clean install -PautoInstallBundle -D maven.test.skip=true -D maven.wagon.http.ssl.insecure=true -D maven.wagon.http.ssl.allowall=true -U
+
+mvn clean install -PautoInstallBundle -Dhttps.protocols=TLSv1.2
+
+mvn clean install -PautoInstallSinglePackage -Dhttps.protocols=TLSv1.2
+
+
+
