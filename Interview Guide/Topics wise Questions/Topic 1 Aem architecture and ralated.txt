@@ -77,30 +77,6 @@ Containerized deployments
 
 Q5. Difference Between AEM 6.5 and AEM Cloud Service?
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 AEM 6.5AEM CloudManual upgradesAutomated upgradesCustomer-managed infrastructureAdobe-managed infrastructureStateful deploymentsCloud-native deploymentsTraditional package deploymentCI/CD Pipeline
 
 Q6. What is Immutable and Mutable Content?

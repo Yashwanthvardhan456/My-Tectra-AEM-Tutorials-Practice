@@ -1,0 +1,310 @@
+Functions in JavaScript
+
+A function is a reusable block of code that performs a specific task. Instead of writing the same code multiple times, you write it once in a function and call it whenever needed.
+
+1. What is a Function?
+
+Think of a function like a coffee machine.
+
+You press a button (call the function).
+It makes coffee (executes code).
+You can use it as many times as you want.
+
+Example:
+
+function greet() {
+    console.log("Hello, Welcome!");
+}
+
+greet();
+
+Output:
+
+Hello, Welcome!
+2. Why Do We Need Functions?
+
+Without functions:
+
+console.log("Hello Rahul");
+console.log("Hello Rahul");
+console.log("Hello Rahul");
+
+With functions:
+
+function sayHello() {
+    console.log("Hello Rahul");
+}
+
+sayHello();
+sayHello();
+sayHello();
+
+Benefits:
+
+Reuse code
+Easier to read
+Easier to maintain
+Reduces duplication
+3. Function Syntax
+function functionName() {
+    // Code
+}
+
+Example:
+
+function welcome() {
+    console.log("Welcome to JavaScript");
+}
+
+welcome();
+4. Function with Parameters
+
+Parameters allow you to pass values into a function.
+
+function greet(name) {
+    console.log("Hello " + name);
+}
+
+greet("Rahul");
+greet("John");
+
+Output
+
+Hello Rahul
+Hello John
+5. Function with Multiple Parameters
+function add(a, b) {
+    console.log(a + b);
+}
+
+add(10, 20);
+
+Output
+
+30
+6. Returning Values
+
+Instead of printing the result, return it.
+
+function multiply(a, b) {
+    return a * b;
+}
+
+let result = multiply(4, 5);
+
+console.log(result);
+
+Output
+
+20
+7. Function Expression
+
+Functions can be stored in variables.
+
+const greet = function () {
+    console.log("Hello");
+};
+
+greet();
+8. Arrow Function (ES6)
+
+React uses arrow functions extensively.
+
+const greet = () => {
+    console.log("Hello");
+};
+
+greet();
+
+With parameters:
+
+const add = (a, b) => {
+    return a + b;
+};
+
+console.log(add(10, 20));
+
+Short form:
+
+const add = (a, b) => a + b;
+
+console.log(add(10, 20));
+9. Anonymous Function
+
+A function without a name.
+
+setTimeout(function () {
+    console.log("Executed");
+}, 1000);
+10. Callback Function
+
+A function passed as an argument to another function.
+
+function greet(name, callback) {
+    console.log("Hello " + name);
+
+    callback();
+}
+
+function bye() {
+    console.log("Goodbye");
+}
+
+greet("Rahul", bye);
+
+Output
+
+Hello Rahul
+Goodbye
+11. Real-World Example
+
+Calculate the total price.
+
+function calculateTotal(price, quantity) {
+    return price * quantity;
+}
+
+let total = calculateTotal(500, 3);
+
+console.log(total);
+
+Output
+
+1500
+12. How React Uses Functions
+
+React components are functions.
+
+function Header() {
+    return <h1>Welcome</h1>;
+}
+
+export default Header;
+
+Another example:
+
+function User() {
+    const name = "Rahul";
+
+    return <h2>{name}</h2>;
+}
+
+React also uses functions for event handling:
+
+function App() {
+
+    function showMessage() {
+        alert("Button Clicked");
+    }
+
+    return (
+        <button onClick={showMessage}>
+            Click
+        </button>
+    );
+}
+13. Common Interview Questions
+Q1. What is the difference between parameters and arguments?
+
+Parameters are variables in the function definition.
+
+function add(a, b) {
+
+}
+
+Arguments are the actual values passed.
+
+add(10, 20);
+Q2. Difference between function declaration and function expression?
+
+Function Declaration
+
+function greet() {
+
+}
+
+Function Expression
+
+const greet = function () {
+
+};
+Q3. Why are arrow functions popular in React?
+Shorter syntax
+Do not have their own this
+Commonly used for event handlers and callbacks
+14. Common Mistakes
+Forgetting to call the function
+function greet() {
+    console.log("Hello");
+}
+
+greet; // ❌ Doesn't execute
+
+Correct:
+
+greet();
+Forgetting return
+function add(a, b) {
+    a + b;
+}
+
+console.log(add(2, 3));
+
+Output:
+
+undefined
+
+Correct:
+
+function add(a, b) {
+    return a + b;
+}
+15. Practice Exercises
+Easy
+Create a function that prints your name.
+Create a function that prints your city.
+Create a function that adds two numbers.
+Create a function that subtracts two numbers.
+Create a function that multiplies two numbers.
+Medium
+Find the largest of two numbers.
+Check whether a number is even or odd.
+Calculate the area of a rectangle.
+Reverse a string.
+Count the number of vowels in a string.
+React-Oriented
+
+Create functions for:
+
+Greeting a user
+Calculating total cart value
+Formatting a user's full name
+Checking login status
+Displaying product prices with tax
+Mini Project: Student Result Calculator
+function calculatePercentage(totalMarks, obtainedMarks) {
+    return (obtainedMarks / totalMarks) * 100;
+}
+
+function getGrade(percentage) {
+    if (percentage >= 90) return "A";
+    if (percentage >= 75) return "B";
+    if (percentage >= 60) return "C";
+    return "Fail";
+}
+
+const percentage = calculatePercentage(500, 420);
+
+console.log("Percentage:", percentage);
+console.log("Grade:", getGrade(percentage));
+
+Output:
+
+Percentage: 84
+Grade: B
+Key Takeaways
+Functions make code reusable and organized.
+Use parameters to accept input and return to send results back.
+React components are functions.
+Arrow functions are widely used in React.
+Understanding functions is essential before learning concepts like map(), callbacks, useState, and useEffect.

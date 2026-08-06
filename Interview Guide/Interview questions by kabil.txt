@@ -1,0 +1,147 @@
+AEM Architecture & Core Concepts
+
+1. Explain AEM architecture in detail.
+2. Explain the flow: Browser → CDN → Dispatcher → Publish → Author.
+3. What is the role of Sling, JCR, Oak, and OSGi in AEM?
+4. Difference between Resource and Node.
+5. Difference between Package and Bundle.
+6. Explain ResourceResolver and Session. Which should be preferred and why?
+7. Explain service users and ResourceResolverFactory.
+8. Difference between Author and Publish instances.
+9. What are run modes in AEM and how do you use them?
+
+Components & HTL
+
+10. How do you create a component in AEM from scratch?
+11. Explain the component creation process.
+12. What is sling:resourceType and sling:resourceSuperType?
+13. How do you override Core Components?
+14. Difference between extending and overlaying components.
+15. What is HTL and why is it preferred over JSP?
+16. Difference between data-sly-resource, data-sly-include, and data-sly-use.
+17. How do you pass data from Sling Model to HTL?
+18. What is Edit Config and why is it used?
+19. How do you create author-friendly components?
+20. How do you create a multifield and nested multifield?
+
+Templates & Content
+
+21. Difference between Editable Templates and Static Templates.
+22. What are policies in Editable Templates?
+23. What are Experience Fragments and Content Fragments?
+24. Explain content fragment models.
+25. When would you choose Experience Fragments vs Content Fragments?
+26. How do you implement AEM Headless using Content Fragments?
+27. How do you manage MSM (Multi Site Manager)?
+28. What is Live Copy and Blueprint?
+
+Sling Models, Servlets & OSGi
+
+29. What are Sling Models?
+30. Difference between @ValueMapValue, @Inject, @OSGiService, and @Self.
+31. What is a Sling Servlet? Explain different servlet registration methods.
+32. Difference between ResourceType servlet and Path servlet.
+33. Why is ResourceType servlet preferred over Path servlet?
+34. How do you consume external APIs in AEM?
+35. How do you secure external API credentials in AEM as a Cloud Service?
+36. What are OSGi services and components?
+37. What is the Felix Console and how do you debug inactive bundles?
+38. How do you resolve Unsatisfied Reference issues in OSGi?
+
+Dispatcher, CDN & Caching
+
+39. What is Dispatcher and how does it work?
+40. Explain the complete request flow with Dispatcher.
+41. How does cache invalidation work in AEM?
+42. Difference between Browser Cache, Dispatcher Cache, and CDN Cache.
+43. What files are configured in Dispatcher?
+44. How do you troubleshoot cache issues?
+45. What is cache poisoning and how do you prevent it?
+46. How do you handle authenticated content with Dispatcher caching?
+47. Explain filters, cache rules, and rewrite rules in Dispatcher.
+48. How does Dispatcher work in AEM as a Cloud Service?
+
+Performance & Optimization
+
+49. How do you improve AEM page performance?
+50. What are Core Web Vitals?
+51. How do you optimize Sling Models?
+52. How do you optimize client libraries?
+53. How do you optimize images in AEM?
+54. How do you identify slow pages?
+55. How do you optimize JCR queries and indexes?
+56. Explain Oak indexing.
+57. What tools do you use for performance analysis?
+58. A page takes 8 seconds to load. How would you troubleshoot it?
+
+Workflows & DAM
+
+59. What are workflows in AEM?
+60. Explain Process Step, Participant Step, and Dialog Step.
+61. How do you create a custom workflow process?
+62. How do asset workflows work in AEM?
+63. What would you do if a sensitive DAM asset was published accidentally?
+
+AEM as a Cloud Service (AEMaaCS)
+
+64. Difference between AEM 6.5 and AEM as a Cloud Service.
+65. Mutable vs Immutable areas in AEMaaCS.
+66. Explain Cloud Manager pipelines.
+67. How do you deploy code in AEMaaCS?
+68. What changes are required when migrating from AEM 6.5 to AEMaaCS?
+69. Explain Dispatcher as code.
+70. How do you manage environment-specific configurations in AEMaaCS?
+
+Security
+
+71. How do you secure an AEM application?
+72. Why should admin sessions be avoided?
+73. How do you implement service users?
+74. How do you protect against XSS and CSRF in AEM?
+75. How do you secure Sling Servlets and endpoints?
+
+Real-Time Production Scenarios
+
+76. Publish pages are slow but Author is fast. How would you troubleshoot?
+77. Content is visible on Author but not on Publish. What would you check?
+78. A bundle is active in Author but not in Publish. How would you debug?
+79. Dispatcher cache is not getting cleared after activation. How do you resolve it?
+80. Users are facing an infinite login redirect after SAML authentication. How would you troubleshoot?
+81. External API calls are slowing down page rendering. How would you optimize the design?
+82. A component works locally but fails in higher environments. What would you check?
+83. Content appears differently between environments. How do you investigate?
+84. A deployment succeeded but functionality is broken. What are your first five checks?
+85. Describe a production issue you handled and how you resolved it.
+
+Lead-Level Questions
+
+86. How do you perform code reviews in AEM projects?
+87. What coding standards do you enforce?
+88. How do you mentor junior developers?
+89. How do you estimate effort for an AEM feature?
+90. How do you design reusable components across multiple brands?
+91. How do you handle technical debt?
+92. How do you approach a migration from AEM 6.5 to AEMaaCS?
+93. How would you design a global multi-site AEM implementation?
+94. How do you balance personalization and performance?
+95. What KPIs would you monitor in production?
+96. How do you manage release risks?
+97. How do you ensure quality in CI/CD pipelines?
+98. How do you collaborate with business teams and architects?
+99. What is your most challenging AEM implementation?
+100. Why should we hire you as an AEM Lead?
+
+Interview Tip:
+Accenture interviews are typically scenario-heavy. Do not only define concepts; always explain:
+
+1. What it is.
+2. Why it is used.
+3. A real project example.
+4. Common production issues.
+5. How you would troubleshoot it.
+
+For lead roles, expect 60–70% scenario-based questions around Dispatcher, Servlets, Sling Models, AEMaaCS, performance, caching, and production support.
+
+Ans for all these quetions just for interview knowledge is fine
+
+Since we have prepared basics for the interview…now I want you to ask me scenario based questions for five years of experience in AEM don’t hold back also ask as much questions as possible…let’s start with level 0 questions and gradually increase the difficulty of level every time…also check for the previously asked scenario based questions in website and invoke those questions in your personal checklist…after that ask one question at a time and don’t reply with ans I’ll say the ans…take my input verify it add if I left out any, scold me if I am wrong, provide me the correct ans for the questions.

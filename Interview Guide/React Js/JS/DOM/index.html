@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <title id="header-title">Simple To-Do List</title>
+  </head>
+
+  <body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        width: 400px;
+        margin: 50px auto;
+      }
+
+      input {
+        padding: 10px;
+        width: 250px;
+      }
+
+      button {
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      li {
+        margin: 10px 0;
+        padding: 8px;
+        background: #f2f2f2;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+
+      .delete {
+        background: red;
+        color: white;
+        border: none;
+      }
+    </style>
+
+    <h2 id="title">My To-Do List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter a task" />
+    <button id="addBtn">Add</button>
+    <!-- <button id="clickEvent" onclick="alert('button clicked')">Click</button> -->
+
+    <ul id="taskList"></ul>
+
+    <script>
+      //Getting Elements
+      const input = document.getElementById("taskInput");
+      const inputbtn = document.getElementById("addBtn");
+      const inputList = document.getElementById("taskList");
+
+      inputbtn.addEventListener("click", () => {
+        const dummyMemory = input.value.trim();
+        if (dummyMemory === "") {
+          alert("Please Enter a value");
+          return;
+        }
+
+        const li = document.createElement("li");
+        li.innerHTML = `
+    <span>${dummyMemory}</span>
+    <button class="delete">Delete</button>
+    `;
+        inputList.appendChild(li);
+
+        //Marked
+        li.querySelector("span").addEventListener("click", () => {
+          li.classList.toggle("completed");
+        });
+
+        //Delete
+        li.querySelector(".delete").addEventListener("click", () => {
+          li.remove();
+        });
+
+        input.value = "";
+      });
+    </script>
+  </body>
+</html>
