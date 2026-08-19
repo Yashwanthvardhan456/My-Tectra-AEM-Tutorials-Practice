@@ -52,35 +52,32 @@
 
     <script>
       //Getting Elements
-      const input = document.getElementById("taskInput");
-      const inputbtn = document.getElementById("addBtn");
+      const inputValue = document.getElementById("taskInput");
+      const inputBtn = document.getElementById("addBtn");
       const inputList = document.getElementById("taskList");
 
-      inputbtn.addEventListener("click", () => {
-        const dummyMemory = input.value.trim();
-        if (dummyMemory === "") {
-          alert("Please Enter a value");
+      inputBtn.addEventListener("click", () => {
+        const dummyValue = inputValue.value.trim();
+        if (dummyValue === "") {
+          alert("Please enter a value");
           return;
         }
 
         const li = document.createElement("li");
         li.innerHTML = `
-    <span>${dummyMemory}</span>
-    <button class="delete">Delete</button>
-    `;
+          <span>${dummyValue}</span>
+          <button class="delete">Delete</button>
+        `;
         inputList.appendChild(li);
-
-        //Marked
+        //Mark as completed
         li.querySelector("span").addEventListener("click", () => {
           li.classList.toggle("completed");
         });
 
-        //Delete
+        //Deleted
         li.querySelector(".delete").addEventListener("click", () => {
           li.remove();
         });
-
-        input.value = "";
       });
     </script>
   </body>
