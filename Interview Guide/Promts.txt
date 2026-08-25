@@ -8,7 +8,7 @@ MY INTERVIEW QUESTION
 
 [START QUESTION]
 
-How do you create a component in AEM from scratch?
+Difference between Resource and Node.
 
 [END QUESTION]
 
@@ -17,7 +17,7 @@ How do you create a component in AEM from scratch?
 ANSWER FORMAT
 ==================================================
 
-For every question, provide the answer in the following interview-focused format.
+For every question, provide the answer in the following interview-focused format and in simple and understanding way.
 
 --------------------------------------------------
 1. Interview Answer (2-3 Minutes)
