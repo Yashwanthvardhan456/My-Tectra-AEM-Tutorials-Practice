@@ -1,0 +1,248 @@
+AEM Architecture & Fundamentals
+1. Explain the architecture of Adobe Experience Manager.
+
+Expected Answer Areas:
+
+OSGi framework
+Sling
+JCR Repository (Oak)
+Dispatcher
+Publisher & Author instances
+Apache Felix
+2. What is the request processing lifecycle in AEM?
+3. How does Sling resolve a request?
+4. What is the difference between Resource, Node, and Page in AEM?
+5. What are the key differences between AEM 6.5 and AEM as a Cloud Service?
+6. How is deployment handled in AEM Cloud Service?
+7. Explain editable templates and their advantages over static templates.
+8. What is the role of Content Fragments and Experience Fragments?
+AEM Backend Development
+9. What are Sling Models? Why are they preferred over WCMUsePojo?
+10. Explain the lifecycle of a Sling Model.
+11. How do you inject resources into a Sling Model?
+12. Difference between:
+Java
+1
+@ValueMapValue
+2
+@Inject
+3
+@OSGiService
+Show more lines
+13. What are AEM Services and when would you create one?
+14. Explain OSGi components and services.
+15. What are OSGi configurations?
+16. Difference between:
+Immediate Component
+Service Component
+17. How do you create a custom workflow step?
+18. What is a Workflow Process implementation?
+19. Explain Event Handlers in AEM.
+20. How do you schedule jobs in AEM?
+Java & OSGi Questions
+21. Explain OSGi Declarative Services.
+22. Difference between Service Ranking and Service Reference.
+23. Explain singleton behavior in OSGi services.
+24. How do you manage thread safety in AEM services?
+25. What Java 8 features have you used in AEM projects?
+
+Example:
+
+Streams
+Lambda expressions
+Optional
+26. Explain memory leaks you've encountered in AEM applications.
+27. What design patterns have you implemented in AEM?
+
+Expected:
+
+Factory
+Singleton
+Adapter
+Service Locator
+AEM Components
+28. Explain the structure of an AEM component.
+29. Difference between:
+HTL
+JSP
+Sightly
+30. What are Core Components?
+31. Have you customized any AEM Core Component?
+32. What is Policy Configuration in AEM?
+33. How do you inherit properties across components?
+34. Explain Resource Super Type.
+35. Difference between:
+Plain Text
+1
+sling:resourceType
+2
+sling:resourceSuperType
+Show more lines
+Headless CMS & AEM APIs
+36. How is AEM used as a Headless CMS?
+37. Explain Content Fragments in AEM.
+38. What are Content Fragment Models?
+39. How do you expose Content Fragments through APIs?
+40. Explain GraphQL support in AEM.
+41. Difference between:
+REST API
+GraphQL
+42. Have you integrated React applications with AEM Headless?
+43. How would you secure headless APIs?
+44. What are persisted GraphQL queries?
+45. Explain a headless implementation that you worked on.
+AEM Cloud Service
+46. What changes are required when migrating from AEM 6.5 to Cloud Service?
+47. Explain Cloud Manager.
+48. What quality gates exist in Cloud Manager?
+49. What is the importance of immutable and mutable content in AEM Cloud?
+50. How are OSGi configurations managed in Cloud Service?
+51. What deployment strategies have you used?
+52. Explain pipeline execution in Cloud Manager.
+Dispatcher & Caching
+53. What is Dispatcher?
+54. Explain Dispatcher cache invalidation.
+55. Difference between:
+Plain Text
+1
+Dispatcher Flush
+2
+CDN Cache Flush
+3
+Browser Cache
+Show more lines
+56. How would you improve a slow AEM page?
+
+Expected:
+
+Dispatcher caching
+Query optimization
+Lazy loading
+Asset optimization
+CDN
+57. What tools have you used to analyze performance issues?
+58. How do you optimize repository queries?
+59. Explain Query Builder optimization techniques.
+60. What indexing strategy have you implemented in Oak?
+APIs & Integrations
+61. How do you call external REST APIs from AEM?
+62. What HTTP clients have you used?
+
+Examples:
+
+Apache HttpClient
+Java HTTP Client
+63. How do you handle API failures?
+64. What authentication methods have you implemented?
+
+Expected:
+
+OAuth
+JWT
+Basic Authentication
+Token Authentication
+65. Explain API retry and circuit breaker patterns.
+66. Describe a complex third-party integration you worked on.
+67. Have you integrated:
+Salesforce
+SAP
+Adobe Analytics
+Adobe Target
+Security Questions
+68. What are AEM security best practices?
+69. How do you secure OSGi consoles?
+70. What is the principle of least privilege in AEM?
+71. Difference between:
+Service User
+Admin Session
+72. Why should admin sessions be avoided?
+73. How do you prevent XSS attacks in AEM?
+74. Explain CSRF protection in AEM.
+75. How do you secure APIs exposed by AEM?
+76. What vulnerability scanning tools have you used?
+Git & CI/CD
+77. Explain your Git branching strategy.
+78. Difference between:
+Plain Text
+1
+Merge
+2
+Rebase
+3
+Squash
+Show more lines
+79. Explain the build and deployment process in AEM Cloud Manager.
+80. What Maven modules exist in a typical AEM project?
+
+Expected:
+
+Plain Text
+1
+core
+2
+ui.apps
+3
+ui.content
+4
+ui.config
+5
+dispatcher
+6
+all
+Show more lines
+81. Explain package deployment in AEM.
+82. How do you handle rollback in AEM deployments?
+Frontend Integration (HTML/CSS/JavaScript)
+83. How do HTL and JavaScript interact in AEM?
+84. Explain client libraries (clientlibs).
+85. Difference between:
+Plain Text
+1
+categories
+2
+dependencies
+3
+embed
+Show more lines
+86. How do you handle JavaScript bundling in AEM?
+87. What accessibility standards do you follow?
+
+Expected:
+
+WCAG
+ARIA
+88. How do you ensure cross-browser compatibility?
+89. Have you integrated React components inside AEM?
+90. Explain SPA Editor.
+Scenario-Based Questions
+91. A page load time increased from 2 seconds to 10 seconds. How will you debug it?
+92. Dispatcher cache is not getting updated after content publication. How will you troubleshoot?
+93. An API integrated with AEM is timing out frequently. How would you address this?
+94. Authors report that Content Fragments are not appearing in GraphQL responses. What would you check?
+95. Repository size is increasing rapidly. What steps would you take?
+96. Cloud Manager pipeline fails at code quality stage. How will you investigate?
+97. AEM author instance is consuming high CPU. How will you diagnose it?
+98. Oak queries are taking too long. What optimization strategies would you use?
+99. How would you migrate a traditional website to AEM Headless?
+100. Describe the most challenging AEM project you've worked on and the technical decisions you made.
+Must-Ask Questions for This JD
+
+If you're interviewing candidates, these are the top 15 questions to prioritize:
+
+Explain AEM as a Cloud Service architecture.
+How does Sling request resolution work?
+Difference between Sling Models and WCMUsePojo.
+Explain Content Fragments and Headless CMS architecture.
+How does GraphQL work in AEM?
+Explain Dispatcher caching and cache invalidation.
+How would you optimize a slow AEM application?
+Explain OSGi services and configurations.
+How do you secure AEM applications?
+What is Resource Super Type?
+Explain a complex API integration you implemented.
+How does Cloud Manager deployment work?
+What are Oak indexes and query optimization techniques?
+Describe your CI/CD pipeline for AEM Cloud Service.
+Explain an end-to-end AEM headless project you developed.
+
+These questions should effectively assess a 4-6 year AEM Backend Engineer with AEM Cloud Service and Headless CMS experience.

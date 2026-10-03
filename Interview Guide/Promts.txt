@@ -8,7 +8,8 @@ MY INTERVIEW QUESTION
 
 [START QUESTION]
 
-Difference between Resource and Node.
+Difference between AEM and AEM as cloud Service
+
 
 [END QUESTION]
 
